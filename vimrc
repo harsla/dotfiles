@@ -15,6 +15,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-surround'
+Plugin 'gregsexton/MatchTag'
 
 call vundle#end()
 filetype plugin indent on
