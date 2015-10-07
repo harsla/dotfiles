@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -22,6 +23,9 @@ call vundle#end()
 filetype plugin indent on
 " =============== Vundle Plugin End =================
 
+
+" ================ Enable mouse clicks ==============
+set mouse=a
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -64,6 +68,9 @@ set nofoldenable          "dont fold by default
 let mapleader ='\'
 
 " ================ Plugin Configs ===================
+" turn syntax higlighting on
+syntax on
+
 " javascript lib syntax
 let g:used_javascript_libs = 'underscore,angularjs,angularuirouter,angularui'
 

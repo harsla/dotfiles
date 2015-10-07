@@ -1,0 +1,5 @@
+[user]
+	email = harsla@gmail.com
+	name = Scott Harsla
+[credential]
+	helper = osxkeychain
