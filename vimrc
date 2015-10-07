@@ -18,11 +18,12 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'gregsexton/MatchTag'
+Plugin 'chrisgillis/vim-bootstrap3-snippets'
+Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
 filetype plugin indent on
-" =============== Vundle Plugin End =================
-
 
 " ================ Enable mouse clicks ==============
 set mouse=a
@@ -64,7 +65,7 @@ set foldmethod=indent     "fold based on indent
 set foldnestmax=3         "deepest fold is 3 levels
 set nofoldenable          "dont fold by default
 
-" ================ Folds ============================
+" ================ Leader ===========================
 let mapleader ='\'
 
 " ================ Plugin Configs ===================
