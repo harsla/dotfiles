@@ -54,6 +54,9 @@ set expandtab
 filetype plugin on
 filetype indent on
 
+" ================ Line Numbers =====================
+set number
+
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
