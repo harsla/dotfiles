@@ -21,6 +21,7 @@ Plugin 'gregsexton/MatchTag'
 Plugin 'chrisgillis/vim-bootstrap3-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'Townk/vim-autoclose'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()
 filetype plugin indent on
