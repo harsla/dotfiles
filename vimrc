@@ -20,14 +20,17 @@ Plugin 'tpope/vim-surround'
 Plugin 'gregsexton/MatchTag'
 Plugin 'chrisgillis/vim-bootstrap3-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'Townk/vim-autoclose'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
 
 " ================ Enable mouse clicks ==============
 set mouse=a
+
+" ================ Enable spell checking ============
+set spell spelllang=en_us
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -55,6 +58,9 @@ set expandtab
 filetype plugin on
 filetype indent on
 
+" ================== Colors =========================
+set background=dark
+
 " ================ Line Numbers =====================
 set number
 
@@ -80,10 +86,15 @@ syntax on
 let g:used_javascript_libs = 'underscore,angularjs,angularuirouter,angularui'
 
 " syntastic
+let g:syntastic_html_tidy_ignore_errors= ["discarding unexpected <timepicker>","discarding unexpected </timepicker>", "<form> id and name attribute value mismatch", "proprietary attribute \"autofocus", "proprietary attribute \"ui-", "proprietary attribute \"ng-", "<form> proprietary attribute \"novalidate\"", "<form> lacks \"action\" attribute", "trimming empty <span>", "<input> proprietary attribute \"autofocus\"", "unescaped & which should be written as &amp;", "inserting implicit <span>", "<input> proprietary attribute \"required\"", "trimming empty <select>", "trimming empty <button>", "<img> lacks \"src\" attribute", "plain text isn't allowed in <head> elements", "<html> proprietary attribute \"app\"", "<link> escaping malformed URI reference", "</head> isn't allowed in <body> elements", "<script> escaping malformed URI reference", "discarding unexpected <body>", "'<' + '/' + letter not allowed here", "missing </script>", "proprietary attribute \"autocomplete\"", "trimming empty <i>", "proprietary attribute \"required\"", "proprietary attribute \"placeholder\"", "<ng-include> is not recognized!", "discarding unexpected <ng-include>", "missing </button>", "replacing unexpected button by </button>", "<ey-confirm> is not recognized!", "discarding unexpected <ey-confirm>", "discarding unexpected </ey-confirm>", "discarding unexpected </ng-include>", "discarding unexpected <navbar>", "discarding unexpected </navbar>", "discarding unexpected <md-", "discarding unexpected </md-"]
+let g:syntastic_javascript_checkers = ['jshint']
+
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_quiet_messages={'level':'errors'}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -92,6 +103,7 @@ let g:syntastic_check_on_wq = 0
 " nerdtree
 map <C-d> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 0
+:let g:NERDTreeWinSize=60
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Utilisnips
