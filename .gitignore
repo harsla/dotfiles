@@ -3,18 +3,19 @@
 .svn/
 .sass-cache
 /log/*
-/tmp/*
-*.sqlite3
-*.sqlite
-*.class
-target/
-.classpath
-.settings
-.project
-.metadata
-.springBeans
-.idea
-*.iml
-.DS_Store
-Thumbs.db
-.env
+       /tmp/*
+       vim/backups/
+     *.sqlite3
+     *.sqlite
+     *.class
+     target/
+     .classpath
+     .settings
+     .project
+     .metadata
+     .springBeans
+     .idea
+     *.iml
+     .DS_Store
+     Thumbs.db
+     .env

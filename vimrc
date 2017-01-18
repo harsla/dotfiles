@@ -1,36 +1,39 @@
 set nocompatible              " be iMproved, required
 
-" =============== Vundle Initialization =============
-filetype off                  "required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" =============== Bad Habits ============
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
-" =============== Vundle Plugin Start ===============
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'burnettk/vim-angular'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-surround'
-Plugin 'gregsexton/MatchTag'
-Plugin 'chrisgillis/vim-bootstrap3-snippets'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'terryma/vim-multiple-cursors'
+" =============== Plugin Initialization =============
+call plug#begin('~/.vim/plugged')
 
-call vundle#end()
-filetype plugin indent on
+Plug 'VundleVim/Vundle.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'burnettk/vim-angular'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'gregsexton/MatchTag'
+Plug 'chrisgillis/vim-bootstrap3-snippets'
+Plug 'matthewsimo/angular-vim-snippets'
+Plug 'digitaltoad/vim-jade'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Chiel92/vim-autoformat'
+
+call plug#end()
 
 " ================ Enable mouse clicks ==============
 set mouse=a
 
 " ================ Enable spell checking ============
-set spell spelllang=en_us
+"set spell spelllang=en_us
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -100,6 +103,18 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"dont format paste
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 " nerdtree
 map <C-d> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 0
@@ -111,3 +126,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"format on save
+au BufWrite * :Autoformat
